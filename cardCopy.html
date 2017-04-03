@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Card Design</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta name="author" content="Tripshire">
+    <meta name="description" content="Tripshire, brand guidelines, brand assets, code snippets and developer guidelines for Tripshire products.">
+    <link rel="stylesheet" href="tripshire-bootstrap.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="ts-container">
+        <div class="ts-row">
+            <div class="ts-col-hidden-xs ts-col-hidden-s ts-col-md-9" style="background-color: black; height: 700px; opacity: 0.2">
+            </div>
+            <div class="ts-col-xs-16 ts-col-s-16 ts-col-md-7">
+                <div class="card-box">
+                    <div class="ts-row card-header" class="ts-row">
+                        <div id="formheader-one">
+                            <img src="Icons/forum-logo.svg" class="card-logo">
+                            <h1><strong>Ask the Community</strong></h1>
+                            <h2>On "Surfing at Sanaur"</h2>
+                        </div>
+                        <div id="formheader-two" class="ts-row">
+                                <textarea rows='1' id="textarea" name="forum-question" placeholder='Post your Question '></textarea>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="ts-row" id="formcontent-one">
+                            <hr>
+                            <img src="Icons/bookmark.svg" class="bookmark-svg">
+                            <h1>Should I bring my own Sarong when I visit?</h1>
+                        </div>
+                        <div class="ts-row" id="formcontent-two">
+                            <button class="card-ansBtn">Answer</button>
+                            <img src="Icons/dislike.svg" class="socialIcons">
+                            <img src="Icons/share.svg " class="share-svg">
+                        </div>
+                        <div class="ts-row" id="formcontent-three" style="display: -webkit-inline-box">
+                            <img src="Icons/profile.png" alt="userImg " class="image-size" style="border: 1px solid;">
+                            <div id="userText">
+                                <h3> Pratiksha Sinha </h3>
+                                <h4> Written 24 Dec, 2016</h4>
+                            </div>
+                            <div class="followBtn">
+                                <a href="# ">Follow</a>
+                            </div>
+                        </div>
+                        <p class="ts-row " id="topAns ">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae mauris metus. Vivamus lacinia ullamcorper turpis, in lobortis purus convallis quis. Phasellus eu ex ac lectus tincidunt pretium commodo rhoncus lorem. Donec rhoncus mi id vulputate pharetra. Maecenas at tristique risus.
+                        </p>
+                        <div class="ts-row" id="formcontent-four" style="display: -webkit-inline-box">
+                            <div class="socialNumbers">
+                                <img src="Icons/like.svg " class="socialIcons ">
+                                <p>123</p>
+                            </div>
+                            <div>
+                                <img src="Icons/dislike.svg " class="socialIcons" style="padding-left: 16px;">
+                            </div>
+                            <div class="socialNumbers">
+                                <img src="Icons/comment.svg " class="socialIcons" style="padding-left: 16px;">
+                                <p>12</p>
+                            </div>
+                            <div>
+                                <img src="Icons/share.svg " class="share-svg ">
+                            </div>
+                        </div>
+                        <div class="ts-row allAnsBtn " style="margin-bottom: 50px; ">
+                            <button>View all 14 answers</button>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript ">
+var textarea = document.querySelector('textarea');
+
+textarea.addEventListener('keydown', autosize);
+
+function autosize() {
+    var el = this;
+    setTimeout(function() {
+        el.style.cssText = 'height:60px; padding:0';
+        // for box-sizing other than "content-box " use:
+        // el.style.cssText = '-moz-box-sizing:content-box';
+        el.style.cssText = 'height:' + el.scrollHeight + 'px';
+    }, 0);
+}
+</script>
+
+</html>
