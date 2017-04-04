@@ -12,12 +12,16 @@
 </head>
 
 <body>
-    <div class="ts-container">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">ForumModal</span>
+
+    <div class="ts-container overlay" id="forumModal">
+
         <div class="ts-row">
-            <div class="ts-col-hidden-xs ts-col-hidden-s ts-col-md-9" style="background-color: black; height: 700px; opacity: 0.2">
+            <div class="ts-col-hidden-xs ts-col-hidden-s ts-col-md-9 websiteHiding" id="hiding-website">
             </div>
             <div class="ts-col-xs-16 ts-col-s-16 ts-col-md-7">
                 <div class="card-box">
+                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                     <div class="ts-row card-header" class="ts-row">
                         <div id="formheader-one">
                             <img src="Icons/forum-logo.svg" class="card-logo">
@@ -92,6 +96,15 @@ function autosize() {
         el.style.cssText = 'height:' + el.scrollHeight + 'px';
     }, 0);
 }
+
+function openNav() {
+    document.getElementById("forumModal").style.height = "100%";
+}
+
+function closeNav() {
+    document.getElementById("forumModal").style.height = "0%";
+}
 </script>
+
 
 </html>
