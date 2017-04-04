@@ -9,30 +9,35 @@
     <meta name="description" content="Tripshire, brand guidelines, brand assets, code snippets and developer guidelines for Tripshire products.">
     <link rel="stylesheet" href="tripshire-bootstrap.css">
     <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 </head>
 
 <body>
-    <span style="font-size:30px;cursor:pointer" onclick="openNav()">ForumModal</span>
-
-    <div class="ts-container overlay" id="forumModal">
-
+    <div id="main">
+        <h2>  Website in background </h2> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut mattis lorem. Integer sit amet malesuada nisl, sed rutrum risus. Fusce vel varius nulla, ultrices accumsan mauris. Sed imperdiet iaculis ipsum vel viverra. Fusce accumsan pretium metus eget viverra. Quisque dapibus leo orci, a egestas mauris feugiat laoreet. Pellentesque blandit augue dui, ut suscipit metus placerat ut. Ut non finibus felis. Etiam molestie velit et libero placerat, ut tempus erat blandit. Nam vel sapien mollis, convallis lectus id, tempor sapien. Morbi ut aliquam diam. Morbi rutrum tortor in gravida egestas. Ut nisi diam, vehicula sit amet porta placerat, iaculis in arcu. Morbi semper bibendum euismod. Ut et odio nisi. Maecenas vestibulum gravida ligula, a aliquet mi mattis a. Nam pellentesque libero ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin a ullamcorper quam, non tristique lacus. Ut luctus augue nec urna suscipit, ut facilisis tortor porttitor. Vivamus aliquet, velit id hendrerit semper, nisl elit facilisis risus, id gravida lectus turpis et metus. Praesent pulvinar at arcu lacinia tempor. Fusce mauris leo, condimentum vel feugiat vitae, iaculis et dui. Proin consequat turpis in massa pulvinar, a condimentum ante eleifend. Nulla facilisi. Sed et efficitur urna. Quisque turpis sapien, varius rutrum posuere vitae, laoreet ac augue. Aenean commodo turpis magna, nec fermentum mi dictum ut. Fusce porttitor ipsum semper lectus convallis, in elementum orci efficitur. Suspendisse suscipit arcu sit amet metus vestibulum, id aliquet neque varius. Nam ac velit ut sem fringilla mattis. Nulla vitae lorem id massa viverra laoreet. Nullam et sagittis massa, porttitor pulvinar augue. Vestibulum pretium faucibus tristique. Sed quam justo, tristique eu sapien eu, commodo venenatis mauris. Nullam hendrerit iaculis mauris non tristique. Praesent euismod nibh sit amet purus pellentesque posuere. Mauris eget mauris sed neque gravida gravida. Duis viverra, risus sed ultricies laoreet, arcu lectus viverra orci, in maximus tortor diam a ligula. Sed magna ante, tincidunt vel aliquet tempor, maximus id est. Pellentesque vestibulum facilisis sodales.
+        <br>
+        <br>
+        <br>
+        <span style="font-size:30px;cursor:pointer" onclick="openModal()"> ClickForumModal</span>
+    </div>
+    <div class="ts-container">
         <div class="ts-row">
-            <div class="ts-col-hidden-xs ts-col-hidden-s ts-col-md-9 websiteHiding" id="hiding-website">
+            <div class="ts-col-hidden-xs ts-col-hidden-s ts-col-md-9" id="hidewebsit" onclick="leftsideClose()">
             </div>
-            <div class="ts-col-xs-16 ts-col-s-16 ts-col-md-7">
+            <div class="ts-col-xs-16 ts-col-s-16 ts-col-md-7 rightside forum-container" id="forumModal">
                 <div class="card-box">
-                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <div class="ts-row card-header" class="ts-row">
-                        <div id="formheader-one">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeModal()">&times;</a>
+                    <div class="ts-row card-header animationn">
+                        <div id="formheader-one" class="slideInDown">
                             <img src="Icons/forum-logo.svg" class="card-logo">
                             <h1><strong>Ask the Community</strong></h1>
                             <h2>On "Surfing at Sanaur"</h2>
                         </div>
-                        <div id="formheader-two" class="ts-row">
-                                <textarea rows='1' id="textarea" name="forum-question" placeholder='Post your Question '></textarea>
+                        <div id="formheader-two" class="ts-row zoomIn">
+                            <textarea rows='1' id="textarea" name="forum-question" placeholder='Post your Question '></textarea>
                         </div>
                     </div>
-                    <div class="card-content">
+                    <div class="card-content slideInUp">
                         <div class="ts-row" id="formcontent-one">
                             <hr>
                             <img src="Icons/bookmark.svg" class="bookmark-svg">
@@ -83,28 +88,42 @@
     </div>
 </body>
 <script type="text/javascript ">
+/*Text Area Script*/
 var textarea = document.querySelector('textarea');
-
 textarea.addEventListener('keydown', autosize);
 
 function autosize() {
     var el = this;
     setTimeout(function() {
         el.style.cssText = 'height:60px; padding:0';
-        // for box-sizing other than "content-box " use:
-        // el.style.cssText = '-moz-box-sizing:content-box';
         el.style.cssText = 'height:' + el.scrollHeight + 'px';
     }, 0);
 }
+   
+/*Modal Open Script*/
+function openModal() {
 
-function openNav() {
-    document.getElementById("forumModal").style.height = "100%";
+        document.getElementById("forumModal").style.display = "block";
+        document.getElementById("hidewebsit").style.display = "block";
+        $('.animationn').each(function(i) {
+        $(this).fadeOut(0).delay(2000 * i).fadeIn(1000);
+
+    });
 }
 
-function closeNav() {
-    document.getElementById("forumModal").style.height = "0%";
+/*Modal Closure script*/
+function closeModal() {
+    document.getElementById("forumModal").style.display = "none";
+    document.body.style.backgroundColor = "white";
+    document.getElementById("hidewebsit").style.display = "none";
+
+}
+/*Closing onclik of left opaque script*/
+function leftsideClose() {
+    document.getElementById("hidewebsit").onclick = function() {
+        closeModal();
+    }
 }
 </script>
-
 
 </html>
